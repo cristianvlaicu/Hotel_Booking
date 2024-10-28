@@ -107,7 +107,7 @@ class SpaTicket:
         content = f"""
         Thank you for your SPA reservation!
         Here are you SPA booking data:
-        Name: {self.customer_name}
+        Name: {self.customer_name.title()}
         Hotel name: {self.hotel.name}
         """
         return content
@@ -123,7 +123,7 @@ if hotel.available():
     if credit_card.validate(
         expiration="12/26", holder="JOHN SMITH", cvc="123"
     ):
-        if credit_card.authenticate(given_password="mypass1"):
+        if credit_card.authenticate(given_password="mypass"):
             hotel.book()
             name = input("Enter your name please: ")
             reservation_ticket = ReservationTicket(
